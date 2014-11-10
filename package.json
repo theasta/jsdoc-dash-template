@@ -7,5 +7,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/theasta/jsdoc-dash-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theasta/jsdoc-dash-template/issues"
+  },
   "license": "ISC"
 }

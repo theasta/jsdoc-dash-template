@@ -1,0 +1,11 @@
+{
+  "name": "jsdoc-dash-template",
+  "version": "0.0.1",
+  "author": "Alexandrine Boissière",
+  "description": "A docset-ready JSDoc 3 template",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}

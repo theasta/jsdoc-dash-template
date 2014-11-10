@@ -1,0 +1,16 @@
+# Folder view configuration files
+.DS_Store
+
+# Thumbnail cache files
+._*
+
+# npm files
+npm-debug.log
+node_modules
+
+# IDE configuration files
+.idea
+
+# Tmp folders
+tmp/**
+

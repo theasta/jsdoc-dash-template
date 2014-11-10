@@ -1,0 +1,13 @@
+<nav>
+    <h2><a href="index.html">Index</a></h2>
+    <?js Object.keys(this.nav).forEach(function (element) { ?>
+        <?js if (this.nav[element].items.length) { ?>
+            <h3><?js= this.nav[element].title ?></h3>
+            <ul>
+            <?js this.nav[element].items.forEach(function (item) { ?>
+                <li><?js= item.url ?></li>
+            <?js }); ?>
+            </ul>
+        <?js } ?>
+    <?js }.bind(this)); ?>
+</nav>

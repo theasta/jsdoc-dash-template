@@ -20,7 +20,7 @@
 <section>
 
 <header>
-    <a name="//apple_ref/Class/<?js= doc.longname ?>" class="dashAnchor"></a>
+    <?js= self.dashTOC(doc) ?>
     <?js if (!doc.longname || doc.kind !== 'module') { ?>
         <h2><?js if (doc.ancestors && doc.ancestors.length) { ?>
             <span class="ancestors"><?js= doc.ancestors.join('') ?></span>

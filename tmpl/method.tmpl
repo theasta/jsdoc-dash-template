@@ -2,10 +2,11 @@
 var data = obj;
 var self = this;
 ?>
+<?js= this.dashTOC(data) ?>
 <dt>
     <?js if (data.kind !== 'module') { ?>
-        <?js if (data.kind == 'function') { ?>
-        <a name="//apple_ref/Function/<?js= data.longname ?>" class="dashAnchor"></a>
+        <?js if (kind === 'class') { ?>
+        <h2>Constructor</h2>
         <?js } ?>
 
         <h4 class="name" id="<?js= id ?>"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
@@ -50,7 +51,7 @@ var self = this;
 
     <?js= this.partial('details.tmpl', data) ?>
 
-    <?js if (data.requires && data.requires.length) { ?>
+    <?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
     <h5>Requires:</h5>
     <ul><?js data.requires.forEach(function(r) { ?>
         <li><?js= self.linkto(r) ?></li>

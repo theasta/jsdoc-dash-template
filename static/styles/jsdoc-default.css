@@ -74,6 +74,10 @@ tt, code, kbd, samp {
     width: 70%;
 }
 
+#main.nonav {
+    width: 100%;
+}
+
 article dl {
     margin-bottom: 40px;
 }

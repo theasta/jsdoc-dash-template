@@ -3,9 +3,10 @@
 'use strict';
 
 var TemplateRenderer = require('./lib/templateRenderer');
-
+var DocSetGenerator = require('jsdoc-docset-generator');
 var helper = require('jsdoc/util/templateHelper');
 var fs = require('jsdoc/fs');
+var path = require('path');
 
 function convertToDashType(type) {
     var map = {
@@ -87,7 +88,7 @@ TemplateRenderer.prototype.buildDocSet = function () {
         });
     }, this);
 
-    fs.writeFileSync(this.outdir + '/docset.json', JSON.stringify(entries), 'utf8');
+    return entries;
 };
 /**
  @param {TAFFY} taffyData See <http://taffydb.com/>.
@@ -95,10 +96,34 @@ TemplateRenderer.prototype.buildDocSet = function () {
  @param {Tutorial} tutorials
  */
 exports.publish = function(taffyData, opts, tutorials) {
+
     var templateOptions = {
         includeNav: false
     };
+
+    var docsetDestination = opts.destination;
+    opts.destination += path.sep + "tmp" + Date.now();
+
     var templateRenderer = new TemplateRenderer(taffyData, tutorials, opts, templateOptions);
 
-    templateRenderer.buildDocSet();
+    var entries = templateRenderer.buildDocSet();
+
+    var config = {};
+    config.documentation = opts.destination;
+    config.docSetRoot = docsetDestination;
+    config.docSetName = path.basename(docsetDestination);
+
+    try {
+        var jsdocConf = opts.configure ? require(path.resolve(opts.configure)) : null;
+
+        if (jsdocConf && jsdocConf.docset) {
+            if (jsdocConf.docset.name) { config.docSetName = jsdocConf.docset.name; }
+            if (jsdocConf.docset.icon) { config.icon = jsdocConf.docset.icon; }
+        }
+    } catch (e) {}
+
+    var generator = new DocSetGenerator(config);
+
+    return generator
+        .populate(entries);
 };

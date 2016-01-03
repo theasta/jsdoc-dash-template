@@ -3,7 +3,7 @@
 'use strict';
 
 var TemplateRenderer = require('./lib/templateRenderer');
-var DocSetGenerator = require('jsdoc-docset-generator');
+var DocSetGenerator = require('jsdoc-docset-generator').DocSetGenerator;
 var helper = require('jsdoc/util/templateHelper');
 var fs = require('jsdoc/fs');
 var path = require('path');
@@ -102,7 +102,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     };
 
     var docsetDestination = opts.destination;
-    opts.destination += path.sep + "tmp" + Date.now();
+    opts.destination += path.sep + "html";
 
     var templateRenderer = new TemplateRenderer(taffyData, tutorials, opts, templateOptions);
 
@@ -110,8 +110,8 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     var config = {};
     config.documentation = opts.destination;
-    config.docSetRoot = docsetDestination;
-    config.docSetName = path.basename(docsetDestination);
+    config.destination = docsetDestination;
+    config.name = path.basename(docsetDestination);
 
     try {
         var jsdocConf = opts.configure ? require(path.resolve(opts.configure)) : null;
@@ -122,8 +122,10 @@ exports.publish = function(taffyData, opts, tutorials) {
         }
     } catch (e) {}
 
+    config.entries = entries;
+
     var generator = new DocSetGenerator(config);
 
     return generator
-        .populate(entries);
+        .create();
 };

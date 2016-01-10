@@ -16,6 +16,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "jsdoc-docset-generator": "0.1.0"
+    "jsdoc-docset": "^0.1.0"
   }
 }

@@ -21,7 +21,7 @@ var self = this;
 
     <?js if (data.kind !== 'module' && data.description) { ?>
     <div class="description">
-        <?js= data.description ?>
+        <?js= this.escape(data.description) ?>
     </div>
     <?js } ?>
 

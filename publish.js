@@ -9,6 +9,9 @@ var jsdocDocSet = require('jsdoc-docset');
 
 TemplateRenderer.prototype.beforeGenerate = function () {
   this.view.dashTOC = jsdocDocSet.viewHelpers.dashAnchor;
+  this.view.escape = function (str) {
+    return str.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  };
 };
 
 /**

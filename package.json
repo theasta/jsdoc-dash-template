@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-dash-template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Alexandrine Boissière",
   "description": "A docset-ready JSDoc 3.4 template",
   "main": "publish.js",

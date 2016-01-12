@@ -20,7 +20,7 @@ npm install jsdoc-dash-template --save-dev
 3) Run jsdoc from the command line
 
 ```
-jsdoc -destination path/to/output/folder --private --template node_modules/jsdoc-dash-template --recurse path/to/src/folder
+jsdoc -d path/to/output/folder -p -t node_modules/jsdoc-dash-template -r path/to/src/folder
 ```
 
 If you want even more control over the final result, you can use a jsdoc configuration file to set the following options:

@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.0.1](https://github.com/theasta/jsdoc-dash-template/tree/v1.2.0) (2016-05-10)
+## [2.0.1](https://github.com/theasta/jsdoc-dash-template/tree/v2.0.1) (2016-05-10)
 [Full Changelog](https://github.com/theasta/jsdoc-dash-template/compare/v1.2.0...v2.0.1)
 
 - don't escape html by default anymore. use the [escapeHtml plugin](https://github.com/jsdoc3/jsdoc/blob/master/plugins/escapeHtml.js) to escape html

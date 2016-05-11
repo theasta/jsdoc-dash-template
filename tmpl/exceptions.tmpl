@@ -5,7 +5,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        <?js~ data.description ?>
+        <?js= data.description ?>
         </div>
     </dt>
     <dd></dd>
@@ -24,7 +24,7 @@
 <?js } else { ?>
     <div class="param-desc">
     <?js if (data.description) { ?>
-        <?js~ data.description ?>
+        <?js= data.description ?>
     <?js } else if (data.type && data.type.names) { ?>
         <?js= this.partial('type.tmpl', data.type.names) ?>
     <?js } ?>

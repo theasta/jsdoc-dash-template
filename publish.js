@@ -18,9 +18,13 @@ TemplateRenderer.prototype.beforeGenerate = function () {
  */
 exports.publish = function(taffyData, opts, tutorials) {
 
-  var templateOptions = {
-    includeNav: false
-  };
+  var templateOptions = opts.templateOptions;
+
+  if (!templateOptions) {
+    templateOptions = {
+      includeNav: false
+    }
+  }
 
   var templateRenderer = new TemplateRenderer(taffyData, tutorials, opts, templateOptions);
 
